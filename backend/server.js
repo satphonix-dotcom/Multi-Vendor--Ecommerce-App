@@ -1,7 +1,7 @@
+require('newrelic');
 const app = require("./app");
 const connectDatabase = require("./db/Database");
 const cloudinary = require("cloudinary");
-require('newrelic');
 
 
 // Handling uncaught Exception
