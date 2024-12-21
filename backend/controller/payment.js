@@ -11,7 +11,7 @@ router.post(
       amount: req.body.amount,
       currency: "inr",
       metadata: {
-        company: "Chandan",
+        company: "velvetcoin",
       },
       description:'Sunflower',
     
