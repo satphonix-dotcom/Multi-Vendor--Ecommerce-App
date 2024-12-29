@@ -5,13 +5,8 @@ const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 
-const allowedOrigins = [
-  "http://localhost:3000",          // for local dev
-  process.env.FRONTEND_URL || "https://multi-vendor-ecommerce-app-eosin.vercel.app"    // for production
-];
-
 app.use(cors({
-  origin: allowedOrigins,
+  origin: ['http://localhost:3000','https://multi-vendor-ecommerce-app-eosin.vercel.app'],
   credentials: true
 }));
 
