@@ -1,26 +1,38 @@
-import React from 'react'
+import React, { Fragment, useEffect, useState } from "react";
+
 import Header from "../components/Layout/Header";
 import Hero from "../components/Route/Hero/Hero";
 import Categories from "../components/Route/Categories/Categories";
-import BestDeals from "../components/Route/BestDeals/BestDeals";
-import FeaturedProduct from "../components/Route/FeaturedProduct/FeaturedProduct";
-import Events from "../components/Events/Events";
-import Sponsored from "../components/Route/Sponsored";
 import Footer from "../components/Layout/Footer";
 
 const HomePage = () => {
-  return (
-    <div>
-        <Header activeHeading={1} />
-        <Hero />
-        <Categories />
-        <BestDeals />
-        <Events />
-        <FeaturedProduct />
-        <Sponsored />
-        <Footer />
-    </div>
-  )
-}
+	const [headerOpacity, setHeaderOpacity] = useState(0.6);
 
-export default HomePage
+	useEffect(() => {
+		const handleScroll = () => {
+			if (window.scrollY > 0) {
+				setHeaderOpacity(1); // Fully visible when scrolling
+			} else {
+				setHeaderOpacity(0.6); // Semi-transparent when at the top
+			}
+		};
+
+		window.addEventListener("scroll", handleScroll);
+
+		// Cleanup event listener on component unmount
+		return () => {
+			window.removeEventListener("scroll", handleScroll);
+		};
+	}, []);
+
+	return (
+		<Fragment>
+			<Header activeHeading={1} position="fixed" opacity={headerOpacity} />
+			<Hero />
+			<Categories />
+			<Footer />
+		</Fragment>
+	);
+};
+
+export default HomePage;

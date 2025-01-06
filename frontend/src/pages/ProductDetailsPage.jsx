@@ -7,37 +7,31 @@ import SuggestedProduct from "../components/Products/SuggestedProduct";
 import { useSelector } from "react-redux";
 
 const ProductDetailsPage = () => {
-  const { allProducts } = useSelector((state) => state.products);
-  const { allEvents } = useSelector((state) => state.events);
-  const { id } = useParams();
-  const [data, setData] = useState(null);
-  const [searchParams] = useSearchParams();
-  const eventData = searchParams.get("isEvent");
+	const { allProducts } = useSelector((state) => state.products);
+	const { allEvents } = useSelector((state) => state.events);
+	const { id } = useParams();
+	const [data, setData] = useState(null);
+	const [searchParams] = useSearchParams();
+	const eventData = searchParams.get("isEvent");
 
-  useEffect(() => {
-    if (eventData !== null) {
-      const data = allEvents && allEvents.find((i) => i._id === id);
-      setData(data);
-    } else {
-      const data = allProducts && allProducts.find((i) => i._id === id);
-      setData(data);
-    }
-  }, [allProducts, allEvents]);
+	useEffect(() => {
+		if (eventData !== null) {
+			const data = allEvents && allEvents.find((i) => i._id === id);
+			setData(data);
+		} else {
+			const data = allProducts && allProducts.find((i) => i._id === id);
+			setData(data);
+		}
+	}, [allProducts, allEvents, id, eventData]);
 
-  return (
-    <div>
-      <Header />
-      <ProductDetails data={data} />
-        {
-          !eventData && (
-            <>
-            {data && <SuggestedProduct data={data} />}
-            </>
-          )
-        }
-      <Footer />
-    </div>
-  );
+	return (
+		<div>
+			<Header position="sticky" opacity="1" />
+			<ProductDetails data={data} />
+			{!eventData && <>{data && <SuggestedProduct data={data} />}</>}
+			<Footer />
+		</div>
+	);
 };
 
 export default ProductDetailsPage;
