@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Box, CardMedia, Container, IconButton, TextField, Typography } from "@mui/material";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { IoClose } from "react-icons/io5";
+import { IoClose, IoMenu } from "react-icons/io5";
 
 import { colors } from "../../styles/styles";
 import Image from "../../assets/Images";
@@ -16,6 +16,7 @@ const Header = (props) => {
 	const [searchData, setSearchData] = useState(null);
 	const { allProducts } = useSelector((state) => state.products);
 	const { isAuthenticated, user } = useSelector((state) => state.user);
+	const [hamburgerOpen, setHamburgerOpen] = useState(false);
 
 	const handleSearchChange = (e) => {
 		const term = e.target.value;
@@ -27,6 +28,10 @@ const Header = (props) => {
 				product.name.toLowerCase().includes(term.toLowerCase())
 			);
 		setSearchData(filteredProducts);
+	};
+
+	const toggleHamburger = () => {
+		setHamburgerOpen(!hamburgerOpen);
 	};
 
 	return (
@@ -47,11 +52,15 @@ const Header = (props) => {
 						flexDirection: "row",
 						justifyContent: "space-between",
 						alignItems: "center",
+						my: "auto",
 					}}
 				>
 					<Box
 						sx={{
-							width: "67%",
+							width: {
+								xs: "50%",
+								sm: "67%",
+							},
 						}}
 					>
 						<Link to="/">
@@ -65,7 +74,10 @@ const Header = (props) => {
 										md: 350,
 									},
 									objectFit: "fill",
-									marginLeft: "auto",
+									marginLeft: {
+										xs: "0px",
+										sm: "auto",
+									},
 									cursor: "pointer",
 								}}
 							/>
@@ -96,7 +108,6 @@ const Header = (props) => {
 									md: 23,
 								},
 								objectFit: "fill",
-								marginLeft: "auto",
 								cursor: "pointer",
 							}}
 						/>
@@ -157,6 +168,15 @@ const Header = (props) => {
 								{cart && cart.length}
 							</span>
 						</Box>
+						<IconButton
+							onClick={toggleHamburger}
+							sx={{
+								display: { xs: "block", sm: "none" },
+								p: 0,
+							}}
+						>
+							<IoMenu size={25} color={colors.white} />
+						</IconButton>
 					</Box>
 				</Box>
 
@@ -249,11 +269,15 @@ const Header = (props) => {
 						className="hina-mincho-regular"
 						sx={{
 							listStyle: "none",
-							display: "inline-block",
+							display: {
+								xs: hamburgerOpen ? "block" : "none",
+								sm: "inline-block",
+							},
+
 							mr: { xs: 0.7, sm: 2, md: 4 },
 							color: [colors.white],
 							fontSize: {
-								xs: 9,
+								xs: 14,
 								sm: 12,
 								md: 13,
 							},
@@ -271,12 +295,16 @@ const Header = (props) => {
 						className="hina-mincho-regular"
 						sx={{
 							listStyle: "none",
-							display: "inline-block",
+							display: {
+								xs: hamburgerOpen ? "block" : "none",
+								sm: "inline-block",
+							},
+
 							mr: { xs: 0.7, sm: 2, md: 4 },
 							textTransform: "capitalize",
 							color: [colors.white],
 							fontSize: {
-								xs: 11,
+								xs: 14,
 								sm: 13,
 								md: 18,
 							},
@@ -298,12 +326,16 @@ const Header = (props) => {
 						className="hina-mincho-regular"
 						sx={{
 							listStyle: "none",
-							display: "inline-block",
+							display: {
+								xs: hamburgerOpen ? "block" : "none",
+								sm: "inline-block",
+							},
+
 							mr: { xs: 0.7, sm: 2, md: 4 },
 							textTransform: "capitalize",
 							color: [colors.white],
 							fontSize: {
-								xs: 11,
+								xs: 14,
 								sm: 13,
 								md: 18,
 							},
@@ -325,12 +357,16 @@ const Header = (props) => {
 						className="hina-mincho-regular"
 						sx={{
 							listStyle: "none",
-							display: "inline-block",
+							display: {
+								xs: hamburgerOpen ? "block" : "none",
+								sm: "inline-block",
+							},
+
 							mr: { xs: 0.7, sm: 2, md: 4 },
 							textTransform: "capitalize",
 							color: [colors.white],
 							fontSize: {
-								xs: 11,
+								xs: 14,
 								sm: 13,
 								md: 18,
 							},
@@ -352,12 +388,16 @@ const Header = (props) => {
 						className="hina-mincho-regular"
 						sx={{
 							listStyle: "none",
-							display: "inline-block",
+							display: {
+								xs: hamburgerOpen ? "block" : "none",
+								sm: "inline-block",
+							},
+
 							mr: { xs: 0.7, sm: 2, md: 4 },
 							textTransform: "capitalize",
 							color: [colors.white],
 							fontSize: {
-								xs: 11,
+								xs: 14,
 								sm: 13,
 								md: 18,
 							},
@@ -379,12 +419,16 @@ const Header = (props) => {
 						className="hina-mincho-regular"
 						sx={{
 							listStyle: "none",
-							display: "inline-block",
+							display: {
+								xs: hamburgerOpen ? "block" : "none",
+								sm: "inline-block",
+							},
+
 							mr: { xs: 0.7, sm: 2, md: 4 },
 							textTransform: "capitalize",
 							color: [colors.white],
 							fontSize: {
-								xs: 11,
+								xs: 14,
 								sm: 13,
 								md: 18,
 							},
@@ -406,12 +450,16 @@ const Header = (props) => {
 						className="hina-mincho-regular"
 						sx={{
 							listStyle: "none",
-							display: "inline-block",
+							display: {
+								xs: hamburgerOpen ? "block" : "none",
+								sm: "inline-block",
+							},
+
 							mr: { xs: 0.7, sm: 2, md: 4 },
 							textTransform: "capitalize",
 							color: [colors.white],
 							fontSize: {
-								xs: 11,
+								xs: 14,
 								sm: 13,
 								md: 18,
 							},
@@ -433,12 +481,16 @@ const Header = (props) => {
 						className="hina-mincho-regular"
 						sx={{
 							listStyle: "none",
-							display: "inline-block",
+							display: {
+								xs: hamburgerOpen ? "block" : "none",
+								sm: "inline-block",
+							},
+
 							mr: { xs: 0.7, sm: 2, md: 4 },
 							textTransform: "capitalize",
 							color: [colors.white],
 							fontSize: {
-								xs: 11,
+								xs: 14,
 								sm: 13,
 								md: 18,
 							},
