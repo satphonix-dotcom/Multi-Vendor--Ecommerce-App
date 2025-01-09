@@ -1,7 +1,8 @@
-import { Box, CardMedia, Container, Divider, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
+
+import { Box, CardMedia, Container, Typography } from "@mui/material";
 import { useSelector } from "react-redux";
-import { colors } from "../../styles/styles";
+
 import CheckoutDetailed from "../Checkout/CheckoutDetailed";
 
 const WalletGenerate = () => {

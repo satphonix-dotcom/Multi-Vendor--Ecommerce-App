@@ -1,6 +1,8 @@
 import React from "react";
-import { colors } from "../../styles/styles";
+
 import { Box, Button, Container, Typography } from "@mui/material";
+
+import { colors } from "../../styles/styles";
 
 const CheckoutSteps = ({ active }) => {
 	return (

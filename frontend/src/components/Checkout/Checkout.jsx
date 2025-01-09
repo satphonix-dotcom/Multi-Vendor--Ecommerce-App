@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import { colors } from "../../styles/styles";
+
 import { Country, State } from "country-state-city";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import axios from "axios";
-import { server } from "../../server";
 import { toast } from "react-toastify";
 import {
 	Box,
@@ -18,7 +17,10 @@ import {
 	Select,
 	MenuItem,
 } from "@mui/material";
+
 import Image from "../../assets/Images";
+import { server } from "../../server";
+import { colors } from "../../styles/styles";
 
 const Checkout = () => {
 	const { user } = useSelector((state) => state.user);

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
+
 import { useNavigate } from "react-router-dom";
-import styles, { colors } from "../../styles/styles";
 import { useEffect } from "react";
 import {
 	CardNumberElement,
@@ -12,7 +12,6 @@ import {
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import { useSelector } from "react-redux";
 import axios from "axios";
-import { server } from "../../server";
 import { toast } from "react-toastify";
 import { RxCross1 } from "react-icons/rx";
 import {
@@ -26,6 +25,9 @@ import {
 	RadioGroup,
 	Typography,
 } from "@mui/material";
+
+import styles, { colors } from "../../styles/styles";
+import { server } from "../../server";
 import CheckoutDetails from "../Checkout/CheckoutDetails";
 
 const Payment = () => {

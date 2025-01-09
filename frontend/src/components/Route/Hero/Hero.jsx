@@ -1,17 +1,12 @@
 import React from "react";
 
-// Import mui/material components
 import { Box, Button, CardMedia, Typography } from "@mui/material";
-// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
-// import required modules
 import { Pagination, Autoplay } from "swiper/modules";
-// import images
+
 import Image from "../../../assets/Images";
-// import colors
 import styles, { colors } from "../../../styles/styles";
 
 const Hero = () => {
